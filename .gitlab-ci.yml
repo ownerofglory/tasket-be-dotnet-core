@@ -1,0 +1,20 @@
+﻿# see https://hub.docker.com/r/microsoft/dotnet/
+
+image:  mcr.microsoft.com/dotnet/core/sdk:3.1
+
+
+
+stages:
+  - deploy
+
+release:
+  stage: deploy
+  only:
+    - master
+  artifacts:
+    paths:
+      - out/
+  script:
+    # The output path is relative to the position of the csproj-file
+    - dotnet publish -c Release -o out Ownerofglory.Tasket.Backend/Ownerofglory.Tasket.Backend.csproj
+    

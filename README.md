@@ -1,3 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<configuration>
-</configuration>
+﻿# Tasket
+Backend Monolith project
+
+Author: *ownerofglory*
+email: [contact@ownerofglory.com](contact@ownerofglory.com)
