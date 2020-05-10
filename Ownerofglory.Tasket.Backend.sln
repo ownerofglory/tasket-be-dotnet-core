@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ownerofglory.Tasket.Backend", "Ownerofglory.Tasket.Backend\Ownerofglory.Tasket.Backend.csproj", "{DFBABDA8-180B-4A87-8EDF-216AB25032AC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ownerofglory.Tasket.BackendTest", "Ownerofglory.Tasket.BackendTest\Ownerofglory.Tasket.BackendTest.csproj", "{817F4712-480C-46F7-B49B-B6D5A03E8FFA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,5 +15,9 @@ Global
 		{DFBABDA8-180B-4A87-8EDF-216AB25032AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DFBABDA8-180B-4A87-8EDF-216AB25032AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DFBABDA8-180B-4A87-8EDF-216AB25032AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{817F4712-480C-46F7-B49B-B6D5A03E8FFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{817F4712-480C-46F7-B49B-B6D5A03E8FFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{817F4712-480C-46F7-B49B-B6D5A03E8FFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{817F4712-480C-46F7-B49B-B6D5A03E8FFA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -5,4 +5,10 @@
   </PropertyGroup>
 
 
+  <ItemGroup>
+    <Folder Include="Data\" />
+    <Folder Include="Data\Model\" />
+    <Folder Include="Data\Context\" />
+    <Folder Include="Service\" />
+  </ItemGroup>
 </Project>
