@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Ownerofglory.Tasket.Backend.Data.Service;
 
 namespace Ownerofglory.Tasket.Backend.Controllers
 {
@@ -22,6 +24,7 @@ namespace Ownerofglory.Tasket.Backend.Controllers
         {
             _logger = logger;
         }
+
 
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()

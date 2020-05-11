@@ -1,12 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Text;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.IdentityModel.Tokens;
 using Ownerofglory.Tasket.Backend.Data.Model;
 using Ownerofglory.Tasket.Backend.Data.Service;
 using Ownerofglory.Tasket.Backend.Security.Model;
@@ -14,9 +10,8 @@ using Ownerofglory.Tasket.Backend.Security.Model;
 namespace Ownerofglory.Tasket.Backend.Controllers
 {
     [Authorize]
-    [ApiController]
     [Route("[controller]")]
-    public class UserController : ControllerBase
+    public class UserController : Controller
     {
         public readonly IUserService _userService;
         private IMapper _mapper;
@@ -28,7 +23,8 @@ namespace Ownerofglory.Tasket.Backend.Controllers
         }
 
         [AllowAnonymous]
-        [HttpPost("authenticate")]
+        [HttpPost]
+        [Route("authenticate")]
         public IActionResult Authenticate([FromBody] UserAuthenticateModel model)
         {
             var user = _userService.Authenticate(model.Username, model.Password);
