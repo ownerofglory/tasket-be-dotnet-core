@@ -29,7 +29,7 @@ namespace Ownerofglory.Tasket.Backend
 
            
 
-            var key = Encoding.ASCII.GetBytes("secret");
+            var key = Encoding.ASCII.GetBytes("THIS is a very secure key");
             services.AddAuthentication(x =>
             {
                 x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;

@@ -33,8 +33,8 @@ namespace Ownerofglory.Tasket.Backend.Data.Service
             if (!VerifyPasswordAndHash(password, user.PasswordHash, user.PasswordSalt))
                 return null;
 
-            user.Token = CreateTokenForUser(user, "secret");
-            _dbContext.Update(new User { Id = user.Id, Token = user.Token });
+            user.Token = CreateTokenForUser(user, "THIS is a very secure key");
+            _dbContext.Update(user);
             _dbContext.SaveChanges();
 
             return user.WithoutPassword();
@@ -55,6 +55,7 @@ namespace Ownerofglory.Tasket.Backend.Data.Service
 
             user.PasswordHash = passwordHash;
             user.PasswordSalt = passwordSalt;
+            user.Role = Role.User;
 
             _dbContext.Users.Add(user);
             _dbContext.SaveChanges();

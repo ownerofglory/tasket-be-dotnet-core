@@ -1,8 +1,10 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Ownerofglory.Tasket.Backend.Data.Model
 {
+    [Table("USER")]
     public class User
     {
         [Key]

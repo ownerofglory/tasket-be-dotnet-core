@@ -11,6 +11,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.gitlab-ci.yml = .gitlab-ci.yml
 		Dockerfile = Dockerfile
 		heroku.yml = heroku.yml
+		dc-app.yml = dc-app.yml
+		schema-mysql.sql = schema-mysql.sql
 	EndProjectSection
 EndProject
 Global
