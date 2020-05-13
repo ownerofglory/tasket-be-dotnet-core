@@ -22,5 +22,8 @@ namespace Ownerofglory.Tasket.Backend.Data.Context
         }
 
         public DbSet<User> Users { get; set; }
+        public DbSet<Space> Spaces { get; set; }
+        public DbSet<TaskList> TaskLists { get; set; }
+        public DbSet<Task> Tasks { get; set; }
     }
 }

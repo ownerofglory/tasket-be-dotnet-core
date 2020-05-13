@@ -9,7 +9,6 @@ namespace Ownerofglory.Tasket.Backend.Data.Service
         User Authenticate(string username, string password);
         IEnumerable<User> GetAll();
         User GetById(long id);
-        User GetByToken(string token);
         User Create(User user, string password);
         void Update(User user, string password = null);
         void Delete(long id);

@@ -15,6 +15,7 @@
     <Folder Include="Security\Helper\" />
     <Folder Include="Data\Model\Extension\" />
     <Folder Include="Controller\" />
+    <Folder Include="Controllers\Extension\" />
   </ItemGroup>
 
 

@@ -13,6 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		heroku.yml = heroku.yml
 		dc-app.yml = dc-app.yml
 		schema-mysql.sql = schema-mysql.sql
+		data-mysql.sql = data-mysql.sql
+		mysql.conf = mysql.conf
 	EndProjectSection
 EndProject
 Global

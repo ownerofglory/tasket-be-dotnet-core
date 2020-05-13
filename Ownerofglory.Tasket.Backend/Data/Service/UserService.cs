@@ -34,8 +34,6 @@ namespace Ownerofglory.Tasket.Backend.Data.Service
                 return null;
 
             user.Token = CreateTokenForUser(user, "THIS is a very secure key");
-            _dbContext.Update(user);
-            _dbContext.SaveChanges();
 
             return user.WithoutPassword();
         }
@@ -141,12 +139,6 @@ namespace Ownerofglory.Tasket.Backend.Data.Service
                 }
             }
                 return true;
-        }
-
-        public User GetByToken(string token)
-        {
-            var user = _dbContext.Users.Where(u => u.Token.Equals(token)).FirstOrDefault();
-            return user;
         }
 
         private static void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)

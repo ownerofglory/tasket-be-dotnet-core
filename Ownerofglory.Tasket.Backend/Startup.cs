@@ -51,6 +51,9 @@ namespace Ownerofglory.Tasket.Backend
             services.AddSingleton(Configuration);
             services.AddDbContext<TasketMysqlDbContext>();
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<ISpaceService, SpaceService>();
+            services.AddScoped<ITaskListService, TaskListService>();
+            services.AddScoped<ITaskService, TaskService>();
             services.AddControllers();
             services.AddMvc();
             services.AddCors();
