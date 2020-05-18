@@ -9,7 +9,7 @@ services:
       - --default-authentication-plugin=mysql_native_password
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: 1111aaaa
+      MYSQL_ROOT_PASSWORD: 1111
     ports:
       - 3306:3306
 

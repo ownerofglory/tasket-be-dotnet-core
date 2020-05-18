@@ -4,8 +4,10 @@ using AutoMapper;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Ownerofglory.Tasket.Backend.Data.Context;
 using Ownerofglory.Tasket.Backend.Data.Service;
@@ -46,7 +48,14 @@ namespace Ownerofglory.Tasket.Backend
                     ValidateIssuer = false,
                     ValidateAudience = false
                 };
-            }); ;
+            });
+
+            services.AddLogging(loggingBuilder =>
+            {
+                loggingBuilder.AddConsole()
+                    .AddFilter(DbLoggerCategory.Database.Command.Name, LogLevel.Debug);
+                loggingBuilder.AddDebug();
+            });
 
             services.AddSingleton(Configuration);
             services.AddDbContext<TasketMysqlDbContext>();

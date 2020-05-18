@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 using Ownerofglory.Tasket.Backend.Data.Context;
 using Ownerofglory.Tasket.Backend.Data.Model;
 
@@ -34,7 +35,9 @@ namespace Ownerofglory.Tasket.Backend.Data.Service
 
         public IEnumerable<Space> GetAllForUser(long userId)
         {
-            var spaces = _dbContext.Spaces.Where(s => s.UserId == userId);
+            var spaces = _dbContext.Spaces
+                .Where(s => s.UserId == userId);
+
             return spaces.ToList();
         }
 

@@ -6,12 +6,13 @@ using System.Text.Json.Serialization;
 
 namespace Ownerofglory.Tasket.Backend.Data.Model
 {
-    [Table("SPACE")]
+    [Table("T_SPACE")]
     public class Space
     {
         [Key]
         public long? Id { get; set; }
         public string  Name { get; set; }
+        [Column("userid")]
         public long UserId { get; set; }
 
         public User User { get; set; }

@@ -6,7 +6,7 @@ using System.Text.Json.Serialization;
 
 namespace Ownerofglory.Tasket.Backend.Data.Model
 {
-    [Table("TASKLIST")]
+    [Table("T_TASKLIST")]
     public class TaskList
     {
         [Key]

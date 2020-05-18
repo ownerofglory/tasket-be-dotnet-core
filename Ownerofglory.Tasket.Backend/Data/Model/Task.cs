@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Ownerofglory.Tasket.Backend.Data.Model
 {
-    [Table("TASK")]
+    [Table("T_TASK")]
     public class Task
     {
         [Key]

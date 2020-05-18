@@ -6,7 +6,7 @@ using System.Text.Json.Serialization;
 
 namespace Ownerofglory.Tasket.Backend.Data.Model
 {
-    [Table("USER")]
+    [Table("T_USER")]
     public class User
     {
         [Key]
@@ -22,8 +22,6 @@ namespace Ownerofglory.Tasket.Backend.Data.Model
         public string Token { get; set; }
 
         public virtual ICollection<Space> Spaces { get; set; }
-        [JsonIgnore]
-        public virtual ICollection<Task> Tasks { get; set; }
 
         public User()
         {

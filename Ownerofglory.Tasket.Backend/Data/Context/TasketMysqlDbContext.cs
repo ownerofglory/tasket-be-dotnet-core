@@ -19,6 +19,20 @@ namespace Ownerofglory.Tasket.Backend.Data.Context
             var connectionString = _config.GetSection("Data:Mysql:ConnectionString").Value;
 
             optionsBuilder.UseMySQL(connectionString);
+            optionsBuilder.EnableSensitiveDataLogging(true);
+        }
+
+        protected internal virtual void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<User>().ToTable("T_USER");
+            modelBuilder.Entity<Space>().ToTable("T_SPACE");
+            modelBuilder.Entity<Space>().Property(s => s.User).HasColumnName("userid");
+            modelBuilder.Entity<TaskList>().ToTable("T_TASKLIST");
+            modelBuilder.Entity<TaskList>().Property(tl => tl.Space).HasColumnName("spaceid");
+            modelBuilder.Entity<Task>().ToTable("T_TASK");
+            modelBuilder.Entity<Task>().Property(t => t.TaskList).HasColumnName("tasklistid");
+            //map other properties too    
         }
 
         public DbSet<User> Users { get; set; }
