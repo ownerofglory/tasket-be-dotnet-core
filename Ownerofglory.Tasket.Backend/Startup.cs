@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
+using Ownerofglory.Tasket.Backend.Controllers.Binding;
 using Ownerofglory.Tasket.Backend.Data.Context;
 using Ownerofglory.Tasket.Backend.Data.Service;
 
@@ -64,7 +65,11 @@ namespace Ownerofglory.Tasket.Backend
             services.AddScoped<ITaskListService, TaskListService>();
             services.AddScoped<ITaskService, TaskService>();
             services.AddControllers();
-            services.AddMvc();
+
+            var taskListModelBinder = new TaskListModelBinderProvider();
+
+            services.AddMvc(config =>
+                config.ModelBinderProviders.Insert(0, taskListModelBinder));
             services.AddCors();
         }
 

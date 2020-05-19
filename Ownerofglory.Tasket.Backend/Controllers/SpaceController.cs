@@ -35,6 +35,20 @@ namespace Ownerofglory.Tasket.Backend.Controllers
             return Ok(spaces);
         }
 
+        [HttpGet("{id}")]
+        public IActionResult GetOne(long id)
+        {
+            var userIdStr = User.Claims.Where(c => c.Type == ClaimTypes.Name)
+                   .Select(c => c.Value).SingleOrDefault();
+
+            var userId = long.Parse(userIdStr);
+
+
+            var spaces = _spaceService.GetById(id);
+
+            return Ok(spaces);
+        }
+
         [HttpPost]
         public IActionResult Create([FromBody] Space space)
         {

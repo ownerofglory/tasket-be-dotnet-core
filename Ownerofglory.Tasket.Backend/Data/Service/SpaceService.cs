@@ -43,7 +43,9 @@ namespace Ownerofglory.Tasket.Backend.Data.Service
 
         public Space GetById(long id)
         {
-            var space = _dbContext.Spaces.FirstOrDefault(s => s.Id == id);
+            var space = _dbContext.Spaces
+                .Include(s => s.TaskLists)
+                .FirstOrDefault(s => s.Id == id);
             return space;
         }
 

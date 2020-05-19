@@ -17,7 +17,6 @@ namespace Ownerofglory.Tasket.Backend.Data.Model
 
         public User User { get; set; }
 
-        [JsonIgnore]
         public virtual Collection<TaskList> TaskLists { get; set; }
 
         public Space()
