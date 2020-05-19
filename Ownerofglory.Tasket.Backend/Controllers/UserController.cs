@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Security.Claims;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -97,6 +99,25 @@ namespace Ownerofglory.Tasket.Backend.Controllers
         {
             _userService.Delete(id);
             return Ok();
+        }
+
+        [HttpGet]
+        [Route("info")]
+        public IActionResult GetCurrent()
+        {
+            var userIdStr = User.Claims.Where(c => c.Type == ClaimTypes.Name)
+                   .Select(c => c.Value).SingleOrDefault();
+
+            var userId = long.Parse(userIdStr);
+
+            var user = _userService.GetById(userId);
+            return Ok(new
+            {
+                Id = user.Id,
+                Username = user.Username,
+                FirstName = user.FirstName,
+                LastName = user.LastName
+            });
         }
     }
 }

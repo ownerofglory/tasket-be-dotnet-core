@@ -21,7 +21,6 @@ namespace Ownerofglory.Tasket.Backend.Controllers
             _taskListService = taskListService;
         }
 
-        [HttpGet]
         public IActionResult GetAllByTaskList(long taskListId)
         {
             var userIdStr = User.Claims.Where(c => c.Type == ClaimTypes.Name)
