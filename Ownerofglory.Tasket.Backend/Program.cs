@@ -24,7 +24,7 @@ namespace Ownerofglory.Tasket.Backend
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder
-                        .UseUrls($"https://localhost:{port}")
+                        .UseUrls($"http://localhost:{port}")
                         .UseStartup<Startup>();
                 });
         }
