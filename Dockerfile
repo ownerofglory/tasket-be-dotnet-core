@@ -1,6 +1,10 @@
 ﻿FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS build-env
 WORKDIR /app
 
+#bind heroku port
+CMD gunicorn --bind 0.0.0.0:$PORT wsgi
+
+
 # Copy csproj and restore as distinct layers
 COPY *.csproj ./
 COPY Ownerofglory.Tasket.Backend/Ownerofglory.Tasket.Backend.csproj Ownerofglory.Tasket.Backend/
