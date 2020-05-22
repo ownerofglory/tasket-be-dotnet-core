@@ -18,13 +18,10 @@ namespace Ownerofglory.Tasket.Backend
 
         public static IHostBuilder CreateHostBuilder(string[] args)
         {
-            var port = Environment.GetEnvironmentVariable("SERVER_PORT");
-
             return Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder
-                        .UseUrls($"http://localhost:{port}")
                         .UseStartup<Startup>();
                 });
         }
