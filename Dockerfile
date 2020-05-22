@@ -13,7 +13,7 @@ RUN dotnet restore
 
 # Copy everything else and build
 COPY . ./
-RUN dotnet publish --build-arg SERVER_PORT=$PORT -c Release -o out
+RUN dotnet publish /p:SERVER_PORT=$PORT -c Release -o out
 
 # Build runtime image
 FROM mcr.microsoft.com/dotnet/core/aspnet:3.1
