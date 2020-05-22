@@ -13,10 +13,11 @@ RUN dotnet restore
 
 # Copy everything else and build
 COPY . ./
-RUN dotnet publish /p:SERVER_PORT=$PORT -c Release -o out
+RUN dotnet publish -c Release -o out
 
 # Build runtime image
 FROM mcr.microsoft.com/dotnet/core/aspnet:3.1
 WORKDIR /app
 COPY --from=build-env /app/out .
+CMD ASPNETCORE_URLS=http://*:$PORT dotnet Ownerofglory.Tasket.Backend.dll
 ENTRYPOINT ["dotnet", "Ownerofglory.Tasket.Backend.dll"]
