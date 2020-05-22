@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Ownerofglory.Tasket.Backend.Controllers.Binding.Dto;
 using Ownerofglory.Tasket.Backend.Data.Model;
 
 namespace Ownerofglory.Tasket.Backend.Controllers.Binding
@@ -14,6 +15,9 @@ namespace Ownerofglory.Tasket.Backend.Controllers.Binding
         {
             if (context.Metadata.ModelType == typeof(TaskList))
                 return new TaskListModelBinder();
+
+            //if (context.Metadata.ModelType == typeof(Task))
+            //    return new TaskModelBinder();
 
             return null;
         }

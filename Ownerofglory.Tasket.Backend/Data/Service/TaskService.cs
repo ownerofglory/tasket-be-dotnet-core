@@ -30,7 +30,17 @@ namespace Ownerofglory.Tasket.Backend.Data.Service
 
         public void Update(Task task)
         {
-            throw new NotImplementedException();
+            var presentTask = _dbContext.Tasks.FirstOrDefault(t => t.Id == task.Id);
+
+            if (presentTask == null)
+                throw new Exception("Task doesn't exist");
+
+            presentTask.TaskListId = task.TaskListId;
+            presentTask.Title = task.Title;
+            presentTask.Status = task.Status;
+
+            _dbContext.Update(presentTask);
+            _dbContext.SaveChanges();
         }
     }
 }
