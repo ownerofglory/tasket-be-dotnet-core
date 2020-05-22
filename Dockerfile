@@ -6,7 +6,7 @@ CMD gunicorn --bind 0.0.0.0:$PORT wsgi
 
 
 # Copy csproj and restore as distinct layers
-COPY *.csproj ./
+#COPY *.csproj ./
 COPY Ownerofglory.Tasket.Backend/Ownerofglory.Tasket.Backend.csproj Ownerofglory.Tasket.Backend/
 COPY Ownerofglory.Tasket.BackendTest/Ownerofglory.Tasket.BackendTest.csproj Ownerofglory.Tasket.BackendTest/
 RUN dotnet restore
