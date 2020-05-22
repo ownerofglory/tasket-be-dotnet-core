@@ -51,21 +51,5 @@ namespace Ownerofglory.Tasket.Backend.Controllers
 
             return Ok();
         }
-
-        [HttpPut]
-        public IActionResult Update([FromBody] Task task)
-        {
-            var userIdStr = User.Claims.Where(c => c.Type == ClaimTypes.Name)
-                   .Select(c => c.Value).SingleOrDefault();
-
-            var userId = long.Parse(userIdStr);
-
-            if (!_taskListService.UserHasPermission(task.TaskListId, userId))
-                return BadRequest(new { message = "Not permitted" });
-
-            _taskService.Update(task);
-
-            return Ok();
-        }
     }
 }

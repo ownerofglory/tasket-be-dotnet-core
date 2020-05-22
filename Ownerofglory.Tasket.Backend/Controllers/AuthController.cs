@@ -13,12 +13,12 @@ namespace Ownerofglory.Tasket.Backend.Controllers
 {
     [Authorize]
     [Route("[controller]")]
-    public class AuthController : Controller
+    public class UserController : Controller
     {
         public readonly IUserService _userService;
         private IMapper _mapper;
 
-        public AuthController(IUserService userService, IMapper mapper)
+        public UserController(IUserService userService, IMapper mapper)
         {
             _userService = userService;
             _mapper = mapper;
@@ -101,5 +101,23 @@ namespace Ownerofglory.Tasket.Backend.Controllers
             return Ok();
         }
 
+        [HttpGet]
+        [Route("info")]
+        public IActionResult GetCurrent()
+        {
+            var userIdStr = User.Claims.Where(c => c.Type == ClaimTypes.Name)
+                   .Select(c => c.Value).SingleOrDefault();
+
+            var userId = long.Parse(userIdStr);
+
+            var user = _userService.GetById(userId);
+            return Ok(new
+            {
+                Id = user.Id,
+                Username = user.Username,
+                FirstName = user.FirstName,
+                LastName = user.LastName
+            });
+        }
     }
 }

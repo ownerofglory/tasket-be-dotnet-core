@@ -1,12 +1,8 @@
 ﻿FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS build-env
 WORKDIR /app
 
-#bind heroku port
-CMD gunicorn --bind 0.0.0.0:$PORT wsgi
-
-
 # Copy csproj and restore as distinct layers
-COPY Ownerofglory.Tasket.Backend.sln ./
+COPY *.csproj ./
 COPY Ownerofglory.Tasket.Backend/Ownerofglory.Tasket.Backend.csproj Ownerofglory.Tasket.Backend/
 COPY Ownerofglory.Tasket.BackendTest/Ownerofglory.Tasket.BackendTest.csproj Ownerofglory.Tasket.BackendTest/
 RUN dotnet restore
@@ -19,5 +15,4 @@ RUN dotnet publish -c Release -o out
 FROM mcr.microsoft.com/dotnet/core/aspnet:3.1
 WORKDIR /app
 COPY --from=build-env /app/out .
-CMD ASPNETCORE_URLS=http://*:$PORT dotnet Ownerofglory.Tasket.Backend.dll
-#ENTRYPOINT ["dotnet", "Ownerofglory.Tasket.Backend.dll"]
+ENTRYPOINT ["dotnet", "Ownerofglory.Tasket.Backend.dll"]
